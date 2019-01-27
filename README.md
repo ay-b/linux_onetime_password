@@ -6,7 +6,7 @@ By default it uses simple function to generate a somewhat random number, combine
 You're free to code any function you prefer to get any random character sequence.  
 The resulting hash is the password.  
 Your secret is the username used to login.  
-Script gives you 20 seconds to enter the revealed password, then resets it again.  
+Script gives you 10 seconds to enter the revealed password, then resets it again.  
 
 Second variant to generate one-time password and don't expose it in plain text:
 ```bash
@@ -19,7 +19,7 @@ Note the '123' multiplier — this is a "second secret" which you have to use t
 So you have to divide the exposed number by 123 to know the one-time password (keep in mind 20 seconds countdown to next reset)
 
 You can enchance security even more, by placing the script to another server thus it will change the password over ssh-connection
-Change the line 45 to:
+Change the line 51 to:
 ssh user@yourserver.somewhere "echo \"looper:$PW\" | chpasswd"
 Just don't forget to add key from originating server to the host and use correct user.
 
